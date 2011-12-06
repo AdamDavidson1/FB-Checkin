@@ -3,5 +3,9 @@
 
     <string name="hello">Hello World, FBCheckinActivity!</string>
     <string name="app_name">FB Checkin</string>
+    <string name="request">Request!</string>
+    <string name="upload">Upload Photo</string><string name="post">Wall Post!</string>
+    <string name="delete">Delete Post</string>
+        
 
 </resources>
