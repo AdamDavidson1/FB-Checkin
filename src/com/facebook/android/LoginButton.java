@@ -16,6 +16,10 @@
 
 package com.facebook.android;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import com.facebook.android.BaseRequestListener;
 import com.facebook.android.SessionEvents.AuthListener;
 import com.facebook.android.SessionEvents.LogoutListener;
@@ -107,7 +111,7 @@ public class LoginButton extends ImageButton {
     }
     
     private class LogoutRequestListener extends BaseRequestListener {
-        public void onComplete(String response, final Object state) {
+        public void onComplete(String response) {
             // callback should be run in the original thread, 
             // not the background thread
             mHandler.post(new Runnable() {
@@ -116,6 +120,26 @@ public class LoginButton extends ImageButton {
                 }
             });
         }
+
+		public void onFacebookError(FacebookError arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onFileNotFoundException(FileNotFoundException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onIOException(IOException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onMalformedURLException(MalformedURLException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
     }
     
     private class SessionListener implements AuthListener, LogoutListener {

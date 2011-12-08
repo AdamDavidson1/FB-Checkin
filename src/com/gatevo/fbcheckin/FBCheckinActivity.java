@@ -1,5 +1,9 @@
 package com.gatevo.fbcheckin;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -218,7 +222,7 @@ public class FBCheckinActivity extends Activity {
 
     public class SampleRequestListener extends BaseRequestListener {
 
-        public void onComplete(final String response, Object el) {
+        public void onComplete(final String response) {
             try {
                 // process the response here: executed in background thread
                 Log.d("Facebook-Example", "Response: " + response.toString());
@@ -240,11 +244,32 @@ public class FBCheckinActivity extends Activity {
                 Log.w("Facebook-Example", "Facebook Error: " + e.getMessage());
             }
         }
+
+
+		public void onFacebookError(FacebookError arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onFileNotFoundException(FileNotFoundException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onIOException(IOException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onMalformedURLException(MalformedURLException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
     }
 
     public class SampleUploadListener extends BaseRequestListener {
 
-        public void onComplete(final String response, Object el) {
+        public void onComplete(final String response) {
             try {
                 // process the response here: (executed in background thread)
                 Log.d("Facebook-Example", "Response: " + response.toString());
@@ -266,10 +291,30 @@ public class FBCheckinActivity extends Activity {
                 Log.w("Facebook-Example", "Facebook Error: " + e.getMessage());
             }
         }
+
+		public void onFacebookError(FacebookError arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onFileNotFoundException(FileNotFoundException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onIOException(IOException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onMalformedURLException(MalformedURLException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
     }
     public class WallPostRequestListener extends BaseRequestListener {
 
-        public void onComplete(final String response, Object el) {
+        public void onComplete(final String response) {
             Log.d("Facebook-Example", "Got response: " + response);
             String message = "<empty>";
             try {
@@ -287,11 +332,31 @@ public class FBCheckinActivity extends Activity {
                 }
             });
         }
+
+		public void onFacebookError(FacebookError arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onFileNotFoundException(FileNotFoundException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onIOException(IOException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onMalformedURLException(MalformedURLException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
     }
 
     public class WallPostDeleteListener extends BaseRequestListener {
 
-        public void onComplete(final String response, Object el) {
+        public void onComplete(final String response) {
             if (response.equals("true")) {
                 Log.d("Facebook-Example", "Successfully deleted wall post");
                 FBCheckinActivity.this.runOnUiThread(new Runnable() {
@@ -304,6 +369,26 @@ public class FBCheckinActivity extends Activity {
                 Log.d("Facebook-Example", "Could not delete wall post");
             }
         }
+
+		public void onFacebookError(FacebookError arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onFileNotFoundException(FileNotFoundException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onIOException(IOException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onMalformedURLException(MalformedURLException arg0) {
+			// TODO Auto-generated method stub
+			
+		}
     }
 
     public class SampleDialogListener extends BaseDialogListener {
@@ -315,8 +400,8 @@ public class FBCheckinActivity extends Activity {
                 mAsyncRunner.request(postId, new WallPostRequestListener());
                 mDeleteButton.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
-                        mAsyncRunner.request(postId, new Bundle(), "DELETE",
-                                new WallPostDeleteListener(), this);
+                        //mAsyncRunner.request(postId, new Bundle(), "DELETE",
+                          //      new WallPostDeleteListener(), this);
                     }
                 });
                 mDeleteButton.setVisibility(View.VISIBLE);
